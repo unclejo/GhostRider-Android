@@ -386,12 +386,9 @@ public class Fragment_CustomerNotAround extends Fragment implements ViewModelCal
 
                     mViewModel.getAddressNames().observe(getViewLifecycleOwner(), addressNme -> {
                         try {
-                            addressAdapter = new AddressInfoAdapter(new AddressInfoAdapter.OnDeleteInfoListener() {
-                                @Override
-                                public void OnDelete(int position) {
-                                    mViewModel.deleteAddress(addressNme.get(position).sTransNox);
-                                    GToast.CreateMessage(getActivity(), "Address deleted.", GToast.INFORMATION).show();
-                                }
+                            addressAdapter = new AddressInfoAdapter(position -> {
+                                mViewModel.deleteAddress(addressNme.get(position).sTransNox);
+                                GToast.CreateMessage(getActivity(), "Address deleted.", GToast.INFORMATION).show();
                             });
                             rvCNAOutputs.setAdapter(addressAdapter);
                             addressAdapter.setAddress(addressNme);

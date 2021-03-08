@@ -22,6 +22,9 @@ public interface DAddressRequest {
     @Query("SELECT * FROM Address_Update_Request")
     LiveData<List<EAddressUpdate>> getAddressRequestList();
 
+    @Query("SELECT * FROM Address_Update_Request WHERE sClientID =:ClientID")
+    LiveData<List<EAddressUpdate>> getAddressRequestListForClient(String ClientID);
+
     @Query("UPDATE Address_Update_Request " +
             "SET sTransNox =:TransNox " +
             ",cSendStat = '1', " +
@@ -50,8 +53,9 @@ public interface DAddressRequest {
             "Province_Info AS P " +
             "WHERE B.sBrgyIDxx = AU.sBrgyIDxx " +
             "AND T.sTownIDxx = AU.sTownIDxx " +
-            "AND P.sProvIDxx = T.sProvIDxx")
-    LiveData<List<CustomerAddressInfo>> getAddressNames();
+            "AND P.sProvIDxx = T.sProvIDxx " +
+            "AND AU.sClientID = :ClientID")
+    LiveData<List<CustomerAddressInfo>> getAddressNames(String ClientID);
 
     class CustomerAddressInfo {
         public String sTransNox;

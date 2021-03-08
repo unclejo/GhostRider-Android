@@ -3,7 +3,6 @@ package org.rmj.guanzongroup.ghostrider.dailycollectionplan.Activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,21 +12,13 @@ import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 
-import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.rmj.g3appdriver.GRider.Constants.AppConstants;
-import org.rmj.g3appdriver.GRider.Database.Entities.EDCPCollectionDetail;
-import org.rmj.g3appdriver.GRider.Etc.FormatUIText;
-import org.rmj.g3appdriver.GRider.Etc.LoadDialog;
-import org.rmj.g3appdriver.GRider.Etc.MessageBox;
 import org.rmj.guanzongroup.ghostrider.dailycollectionplan.Adapter.CollectionLogAdapter;
-import org.rmj.guanzongroup.ghostrider.dailycollectionplan.Adapter.TransactionAdapter;
 import org.rmj.guanzongroup.ghostrider.dailycollectionplan.R;
 import org.rmj.guanzongroup.ghostrider.dailycollectionplan.ViewModel.VMCollectionLog;
 
@@ -35,8 +26,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
-import java.util.Locale;
 import java.util.Objects;
 
 public class Activity_CollectionLog extends AppCompatActivity {
@@ -45,7 +34,6 @@ public class Activity_CollectionLog extends AppCompatActivity {
     private VMCollectionLog mViewModel;
 
     private TextView lblBranch, lblAddrss;
-    //private CollectionLogAdapter poAdapter;
     private LinearLayoutManager poManager;
     private TextInputEditText txtDate, txtSearch;
     private RecyclerView recyclerView;
@@ -142,8 +130,6 @@ public class Activity_CollectionLog extends AppCompatActivity {
                 e.printStackTrace();
             }
         });
-
-        //btnPost.setOnClickListener(view -> mViewModel.PostLRCollectionDetail(Activity_CollectionLog.this));
     }
 
     private void initWidgets(){
@@ -178,9 +164,5 @@ public class Activity_CollectionLog extends AppCompatActivity {
             finish();
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    public String getDate(){
-        return "Collection For " + FormatUIText.getParseDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date()));
     }
 }

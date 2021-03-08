@@ -181,11 +181,11 @@ public class VMCustomerNotAround extends AndroidViewModel {
     }
 
     public LiveData<List<DAddressRequest.CustomerAddressInfo>> getAddressNames() {
-        return poUpdate.getAddressNames();
+        return poUpdate.getAddressNames(clientID.getValue());
     }
 
     public LiveData<List<EMobileUpdate>> getMobileRequestList(){
-        return poUpdate.getMobileList();
+        return poUpdate.getMobileListForClient(clientID.getValue());
     }
 
     public void updateCollectionDetail(String RemarksCode){

@@ -27,6 +27,9 @@ public interface DMobileRequest {
     @Query("DELETE FROM Mobile_Update_Request WHERE sTransNox = :sTransNox")
     void deleteMobileInfo(String sTransNox);
 
-    @Query("SELECT * FROM Mobile_Update_Request")
+    @Query("SELECT * FROM Mobile_Update_Request WHERE cSendStat <> '1' AND cTranStat <> '0'")
     LiveData<List<EMobileUpdate>> getMobileRequestList();
+
+    @Query("SELECT * FROM Mobile_Update_Request WHERE sClientID =:ClientID")
+    LiveData<List<EMobileUpdate>> getMobileRequestListForClient(String ClientID);
 }

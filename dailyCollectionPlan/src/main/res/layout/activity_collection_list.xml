@@ -10,6 +10,7 @@
     tools:context=".Activities.Activity_CollectionList">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_collectionLog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/GhostRiderMaterialTheme.AppBarOverlay">
@@ -102,9 +103,7 @@
             android:layout_height="1.5dp"
             android:layout_marginTop="5dp"
             android:background="@color/guanzon_orange"/>
-            android:orientation="vertical"
-            android:gravity="center_horizontal"
-            android:padding="10dp">
+
             <TextView
                 android:id="@+id/lbl_headerDate"
                 android:layout_width="match_parent"
@@ -119,7 +118,6 @@
                 android:layout_marginTop="5dp"
                 android:background="@color/textColor_White"/>
         </LinearLayout>
-    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_collectionList"

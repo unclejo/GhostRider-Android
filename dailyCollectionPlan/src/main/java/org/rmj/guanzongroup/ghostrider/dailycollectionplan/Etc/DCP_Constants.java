@@ -87,6 +87,9 @@ public class DCP_Constants {
 
 
     public static String getRemarksDescription(String fsCode){
+        if (fsCode == null){
+
+        }
         if(fsCode.equalsIgnoreCase("PAY")){
             return "Paid";
         } else if(fsCode.equalsIgnoreCase("PTP")){

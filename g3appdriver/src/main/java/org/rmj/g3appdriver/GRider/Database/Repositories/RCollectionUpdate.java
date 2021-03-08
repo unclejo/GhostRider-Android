@@ -31,12 +31,20 @@ public class RCollectionUpdate {
         return addressDao.getAddressRequestList();
     }
 
-    public LiveData<List<DAddressRequest.CustomerAddressInfo>> getAddressNames() {
-        return addressDao.getAddressNames();
+    public LiveData<List<EAddressUpdate>> getAddressListForClient(String ClientID){
+        return addressDao.getAddressRequestListForClient(ClientID);
+    }
+
+    public LiveData<List<DAddressRequest.CustomerAddressInfo>> getAddressNames(String ClientID) {
+        return addressDao.getAddressNames(ClientID);
     }
 
     public LiveData<List<EMobileUpdate>> getMobileList(){
         return mobileDao.getMobileRequestList();
+    }
+
+    public LiveData<List<EMobileUpdate>> getMobileListForClient(String ClientID){
+        return mobileDao.getMobileRequestListForClient(ClientID);
     }
 
     public void insertUpdateAddress(EAddressUpdate addressUpdate){
