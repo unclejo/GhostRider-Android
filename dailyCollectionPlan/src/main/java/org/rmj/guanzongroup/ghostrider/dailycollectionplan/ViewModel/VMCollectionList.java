@@ -539,6 +539,8 @@ public class VMCollectionList extends AndroidViewModel {
                                         loData.put("nLongitud", loDetail.nLongitud);
                                         loData.put("nLatitude", loDetail.nLatitude);
                                     }
+                                } else {
+                                    loData.put("sRemarksx","Collection not visited or unfinished.");
                                 }
 
                                 JSONObject loJson = new JSONObject();
@@ -546,7 +548,7 @@ public class VMCollectionList extends AndroidViewModel {
                                 loJson.put("nEntryNox", loDetail.nEntryNox);
                                 loJson.put("sAcctNmbr", loDetail.sAcctNmbr);
                                 if(loDetail.sRemCodex == null){
-                                    loJson.put("sRemCodex", "");
+                                    loJson.put("sRemCodex", "OTH");
                                 } else {
                                     loJson.put("sRemCodex", loDetail.sRemCodex);
                                 }

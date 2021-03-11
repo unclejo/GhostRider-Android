@@ -306,6 +306,7 @@ public class SettingsActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     public void showDialogNeverAsk(){
+        loMessage.initDialog();
         loMessage.setNegativeButton("Okay", (view, dialog) -> {
             dialog.dismiss();
             Intent intent = new Intent();

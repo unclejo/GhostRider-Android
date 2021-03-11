@@ -111,6 +111,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         }else{
+            loMessage.initDialog();
             loMessage.setPositiveButton("Yes", new MessageBox.DialogButton() {
                 @Override
                 public void OnButtonClick(View view, AlertDialog dialog) {
@@ -119,7 +120,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     new REmployee(getApplication()).LogoutUserSession();
                 }
             });
-            loMessage.initDialog();
             loMessage.setNegativeButton("No", (view, dialog) -> dialog.dismiss());
             loMessage.setTitle("GhostRider");
             loMessage.setMessage("Exit Ghostrider app?");
