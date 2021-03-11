@@ -94,7 +94,7 @@
                 android:gravity="center"
                 android:inputType="number|none"
                 android:maxLines="1"
-                android:maxLength="20"
+                android:maxLength="15"
                 android:imeOptions="actionNext"
                 android:nextFocusForward="@id/txt_dcpAcctNumber"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -114,7 +114,7 @@
                 android:gravity="center"
                 android:inputType="number|none"
                 android:maxLines="1"
-                android:maxLength="20"
+                android:maxLength="15"
                 android:imeOptions="actionDone"/>
         </com.google.android.material.textfield.TextInputLayout>
 

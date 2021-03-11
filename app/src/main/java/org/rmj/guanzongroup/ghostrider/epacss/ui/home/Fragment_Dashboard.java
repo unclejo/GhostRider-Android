@@ -17,7 +17,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import org.rmj.guanzongroup.ghostrider.epacss.BuildConfig;
 import org.rmj.guanzongroup.ghostrider.imgcapture.ImageFileCreator;
 
 import org.rmj.g3appdriver.GRider.Constants.AppConstants;
@@ -50,6 +52,7 @@ public class Fragment_Dashboard extends Fragment {
     private ImageFileCreator poFilexx;
 
     private ImageView imgProfile;
+    private TextView lblVersion;
     private String lblUserNm, lblEmailx, lblPstion, lblMobile, lblAddrss;
 
     private String photoPath;
@@ -59,6 +62,7 @@ public class Fragment_Dashboard extends Fragment {
         return new Fragment_Dashboard();
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -72,6 +76,8 @@ public class Fragment_Dashboard extends Fragment {
         cvSettings = view.findViewById(R.id.cvAppSettings);
         cvLogout = view.findViewById(R.id.cvUserLogout);
         cvSelfie = view.findViewById(R.id.cvSelfieLogin);
+        lblVersion = view.findViewById(R.id.lbl_versionInfo);
+        lblVersion.setText("GhostRider Build v." + BuildConfig.VERSION_NAME + "." + BuildConfig.VERSION_CODE + " - 01122021 " + BuildConfig.BUILD_TYPE.toUpperCase());
         return view;
     }
 

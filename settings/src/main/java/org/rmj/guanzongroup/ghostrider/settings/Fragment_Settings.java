@@ -87,6 +87,7 @@ public class Fragment_Settings  extends PreferenceFragmentCompat {
 
                         });
                     }else {
+                        loMessage.initDialog();
                         loMessage.setNegativeButton("Okay", (view, dialog) -> dialog.dismiss());
                         loMessage.setTitle("GhostRider Permissions");
                         loMessage.setMessage("You have already granted this permission.");

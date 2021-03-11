@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModel;
 
 import org.rmj.g3appdriver.GRider.Database.Entities.EEmployeeInfo;
 import org.rmj.g3appdriver.GRider.Database.Repositories.REmployee;
+import org.rmj.g3appdriver.GRider.Database.Repositories.RNotificationInfo;
 import org.rmj.g3appdriver.dev.Telephony;
 import org.rmj.g3appdriver.etc.SessionManager;
 
@@ -19,6 +20,9 @@ public class VMDashboard extends AndroidViewModel {
 
     private final SessionManager poSession;
     private final REmployee poEmploye;
+
+    private final RNotificationInfo poNotify;
+
     private MutableLiveData<String> psEmailxx = new MutableLiveData<>();
     private MutableLiveData<String> psUserNme = new MutableLiveData<>();
     private MutableLiveData<String> psBranchx = new MutableLiveData<>();
@@ -31,6 +35,7 @@ public class VMDashboard extends AndroidViewModel {
         poSession = new SessionManager(application);
         poEmploye = new REmployee(application);
         psMobleNo.setValue(new Telephony(application).getMobilNumbers());
+        this.poNotify = new RNotificationInfo(application);
     }
 
     public LiveData<EEmployeeInfo> getEmployeeInfo(){
@@ -40,4 +45,6 @@ public class VMDashboard extends AndroidViewModel {
     public LiveData<String> getMobileNo() {
         return psMobleNo;
     }
+
+
 }

@@ -6,7 +6,6 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.annotation.SuppressLint;
@@ -24,13 +23,13 @@ import android.widget.TextView;
 import org.rmj.g3appdriver.GRider.Constants.AppConstants;
 import org.rmj.g3appdriver.GRider.Etc.TransparentToolbar;
 import org.rmj.guanzongroup.authlibrary.Activity.Activity_Authenticate;
+import org.rmj.guanzongroup.ghostrider.epacss.BuildConfig;
 import org.rmj.guanzongroup.ghostrider.epacss.R;
 import org.rmj.guanzongroup.ghostrider.epacss.Service.DataImportService;
 import org.rmj.guanzongroup.ghostrider.epacss.ViewModel.VMSplashScreen;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Objects;
 
 public class SplashScreenActivity extends AppCompatActivity {
     public static final String TAG = SplashScreenActivity.class.getSimpleName();
@@ -39,12 +38,15 @@ public class SplashScreenActivity extends AppCompatActivity {
     private TextView lblVrsion;
     private VMSplashScreen mViewModel;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         new TransparentToolbar(SplashScreenActivity.this).SetupActionbar();
         prgrssBar = findViewById(R.id.progress_splashscreen);
+        lblVrsion = findViewById(R.id.lbl_versionInfo);
+        lblVrsion.setText("GhostRider Build v." + BuildConfig.VERSION_NAME + "." + BuildConfig.VERSION_CODE + " - 01122021 " + BuildConfig.BUILD_TYPE.toUpperCase());
         mViewModel = new ViewModelProvider(this).get(VMSplashScreen.class);
         mViewModel.setupTokenInfo("sample token info");
         mViewModel.isPermissionsGranted().observe(this, isGranted -> {
